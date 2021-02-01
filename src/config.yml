@@ -1,0 +1,27 @@
+config:
+    target: ""
+    plugins:
+      expect: {}
+    processor: "../../Utils/processor-utils.js"
+    environments:
+        LOCAL:
+          target: "URL"
+          phases:
+            - duration: 5
+              arrivalCount: 100
+              # arrivalRate: 10
+              # rampTo: 100
+        STAGE: 
+          target:  "URL" 
+          phases:
+            - duration: 5
+              arrivalCount: 500
+              # arrivalRate: 10
+              # rampTo: 500
+        PROD:
+          target: "URL"
+          phases:
+            - duration: 5
+            arrivalCount: 800
+            # arrivalRate: 10
+            # rampTo: 800

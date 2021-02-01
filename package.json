@@ -1,0 +1,23 @@
+{
+  "name": "amadita-loadtest",
+  "version": "1.0.0",
+  "description": "Amadita project related to load test",
+  "main": "index.js",
+  "scripts": {
+    "test": "artillery -V && Artillery dino",
+    "testApi": "artillery run src/test/index.yml",
+    "testApiWithReport": "timestap=$(date \"+%Y-%m-%d_%H-%M-%S\") && artillery run -e $env -c src/config.yml -o src/test/Reports/report-$timestap.json src/test/index.yml && artillery report src/test/Reports/report-$timestap.json ",
+    "loadTest": "timestap=$(date \"+%Y-%m-%d_%H-%M-%S\") && artillery run -e $env -c src/config.yml -o src/Workflow/$env/Reports/report-$timestap.json src/Workflow/$env/index.yml && artillery report src/Workflow/$env/Reports/report-$timestap.json ",
+    "report": "artillery report src/Multiflow/report/report-10-static-stage-50.json src/Multiflow/sailResultFlow.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.gbhapps.com:amadita/amadita-loadtest.git"
+  },
+  "author": "GBH",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "^1.6.1",
+    "faker": "^5.1.0"
+  }
+}

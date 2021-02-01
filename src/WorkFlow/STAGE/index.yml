@@ -1,0 +1,19 @@
+config:
+  payload:
+    # path: "./Data/users.csv"
+    # fields:
+    #   - "username"
+  # variables:
+  #   name:
+  #     - "abc"
+scenarios:
+  - flow:
+    - get:
+        name: "firt endpoint"
+        url: "/"
+        # headers:
+        #   "deviceId": "{{deviceId}}"
+        capture:
+          - json: "$.code"
+            as: code
+    - log: "The status code"

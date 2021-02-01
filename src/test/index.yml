@@ -1,0 +1,17 @@
+config:
+    target: "[URL]"
+    plugins:
+        expect: {}
+    phases:
+      - duration: 10
+        arrivalRate: 1
+        name: "First phases"
+scenarios:
+    - flow:
+      - get: 
+          url: "/"
+          name: "GET API"
+          capture: 
+            - json: "$.code"
+              as: code 
+      - log: "{{code}}"
